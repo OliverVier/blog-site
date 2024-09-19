@@ -6,9 +6,10 @@
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"forceConsistentCasingInFileNames": true,
+		"allowSyntheticDefaultImports": true,
 		"skipLibCheck": true,
 		"strict": true,
 		"sourceMap": true,
-		"moduleResolution": "bundler"
-	}
+		"moduleResolution": "Bundler",
+	},
 }
