@@ -1,7 +1,8 @@
 import { Converter} from "showdown";
 import * as parser from 'node-html-parser'
-import fs from 'node:fs';
+import * as fs from 'node:fs';
 import hljs from 'highlight.js';
+import * as path from "node:path";
 
 
 // basic html template
@@ -67,4 +68,28 @@ function convert(inPath: string, outPath: string) {
 	// After highlighting is added, create new html file and add content to article tag in html
 }
 
+//folder content to be converted -> relative filepaths to /src
+const markdownFilepaths = ["tutorials", "blogs"] as const ;
+const srcPath = path.join(__dirname, "../..")
+
+// this function is run via npm script.
+function startConvert() {
+
+	//Go into src folder, from there look up the paths
+	for(let filepath of markdownFilepaths) {
+
+		let absolutePath = path.join(srcPath, filepath)
+		
+		//Read files in filepath
+		let contents = fs.readdirSync(absolutePath)
+
+		for(let mdFileName of contents) {
+			let markdownPath = path.join(absolutePath, mdFileName);
+			console.log(markdownPath);
+			convert(markdownPath, markdownPath.replace(".md",".html"))
+		}
+	}
+}
+
+startConvert()
 //convert("src/testmd.md", "src/html.html")
