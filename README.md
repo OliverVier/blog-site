@@ -21,3 +21,11 @@ as a svelte page, not sure on that yet.
 
 If there is something to be improved or feedback, feel free to post it (in the issue section).
 If this README is read by one of my classmates, lets chat on discord!
+
+# Run project
+
+For the project to run correctly, you have to add a .env file to the root-path.
+This .env file must contain the following key/s
+```bash
+BASEPATH="path_to_folder"
+```
