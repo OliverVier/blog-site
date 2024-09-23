@@ -6,19 +6,7 @@ import * as path from "node:path";
 
 
 // basic html template
-const html_template: string = 
-
-`<!DOCTYPE html>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>%article-title%</title>
-	<link rel="stylesheet" href="/node_modules/highlight.js/styles/github.css">
-	
-</head>
-<body style="background-color: #ddd">
-	<article>%article-content%</article>
-</body>
-</html>`;
+const html_template: string = `<article>%article-content%</article>`;
 
 /**
  * Converts markdown content to new html page.
