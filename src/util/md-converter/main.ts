@@ -4,6 +4,7 @@ import * as fs from 'node:fs';
 import hljs from 'highlight.js';
 import * as path from "node:path";
 
+
 // basic html template
 const html_template: string = `<article>%article-content%</article>`;
 
@@ -12,7 +13,7 @@ const html_template: string = `<article>%article-content%</article>`;
  * @param inPath filepath to markdown file
  * @param outPath filepath for html file
  */
-function convert(inPath: string, outPath: string): WebPage {
+function convert(inPath: string, outPath: string) {
 	
 	const index = inPath.lastIndexOf("/");
 	const inFilepath: string = inPath.substring(0,index)
@@ -45,8 +46,14 @@ function convert(inPath: string, outPath: string): WebPage {
 			}
 		}
 	}
+
+	fs.writeFileSync(outPath, dom.innerHTML)
 	
-	return new WebPage("title", "name", dom.innerHTML, null);
+	// ----------------------------------------------------
+	// Read content of markdown file
+	// When content is read, maybe add a litte bit of highlighting for code if exists (-> look at highlight.js)
+	// Read entire text and find out important text passages or tags for searching the article
+	// After highlighting is added, create new html file and add content to article tag in html
 }
 
 //folder content to be converted -> relative filepaths to /src
@@ -71,3 +78,6 @@ function startConvert() {
 		}
 	}
 }
+
+startConvert()
+//convert("src/testmd.md", "src/html.html")
