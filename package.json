@@ -3,7 +3,6 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"convert": "tsc src/util/md-converter/main.ts && node src/util/md-converter/main.js",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
