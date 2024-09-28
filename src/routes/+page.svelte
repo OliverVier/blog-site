@@ -2,8 +2,9 @@
 
 </script>
 
-<h1> Initial commit </h1>
-<h1> Hello there! </h1>
+<h1>
+	Homepage
+</h1>
 
 <style>
 	
