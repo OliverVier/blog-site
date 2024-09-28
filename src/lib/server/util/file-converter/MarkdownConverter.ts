@@ -1,19 +1,20 @@
-import { Converter} from "showdown";
+import pkg from "showdown";
+const {Converter} = pkg
 import * as parser from 'node-html-parser'
 import * as fs from 'node:fs';
 import hljs from 'highlight.js';
 import * as path from "node:path";
-
+import {BASEPATH} from '$env/static/private'
 
 // basic html template
-const html_template: string = `<article>%article-content%</article>`;
+const html_template: string = `%article-content%`;
 
 /**
  * Converts markdown content to new html page.
  * @param inPath filepath to markdown file
  * @param outPath filepath for html file
  */
-function convert(inPath: string, outPath: string) {
+export function convert(inPath: string, outPath: string) {
 	
 	const index = inPath.lastIndexOf("/");
 	const inFilepath: string = inPath.substring(0,index)
@@ -26,7 +27,7 @@ function convert(inPath: string, outPath: string) {
 
 	// Replace variables with dynamic content
 	let html: string = html_template;
-	html = html.replace("%article-title%", inFilename)
+	//html = html.replace("%article-title%", inFilename)
 	html = html.replace("%article-content%", mdHtml)
 	
 	let dom = parser.parse(html)
@@ -58,7 +59,7 @@ function convert(inPath: string, outPath: string) {
 
 //folder content to be converted -> relative filepaths to /src
 const markdownFilepaths = ["tutorials", "blogs"] as const ;
-const srcPath = path.join(__dirname, "../..")
+const srcPath = path.join(BASEPATH, "../..")
 
 // this function is run via npm script.
 function startConvert() {
@@ -79,5 +80,5 @@ function startConvert() {
 	}
 }
 
-startConvert()
+//startConvert()
 //convert("src/testmd.md", "src/html.html")
