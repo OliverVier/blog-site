@@ -5,7 +5,8 @@ import {BASEPATH} from '$env/static/private'
 import * as converter from '$lib/server/util/file-converter/MarkdownConverter'
 
 export const load = (async ({params}) => {
-    let content = null 
+    let title = null
+    let content = null
     if(params.slug) {
 
         // does entry exist?
@@ -26,7 +27,8 @@ export const load = (async ({params}) => {
         try {
             let contentPath = path.join(BASEPATH,"src/tutorials",params.slug,"content.html");
             content = fs.readFileSync(contentPath).toString()      
+            title = params.slug
         } catch (error) {}
     }
-    return {content};
+    return {title,content};
 }) satisfies PageServerLoad;

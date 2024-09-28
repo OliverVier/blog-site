@@ -3,6 +3,7 @@
 </script>
 
 {#if $page.status = 404}
+    <title>Site not found!</title>
     <h1>This is not the page you were looking for</h1>
 {/if}
 
