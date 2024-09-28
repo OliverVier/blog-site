@@ -1,9 +1,3 @@
-START
-title=Test
-name=test
-parent=
-END
-
 # This is a test tutorial
 
 This file contains markdown.
