@@ -18,7 +18,10 @@ body {
 
 .main_navigation {
 	background-color: #333;
-	padding: 8px
+	padding: 8px;
+	scrollbar-width: none;
+  	overflow: auto;
+  	white-space: nowrap;
 }
 
 .main_navigation > a {
@@ -31,10 +34,19 @@ body {
 
 .main_navigation_head {
 	position: relative;
-	background-color: #444;
+	background-color: #fff;
 	height: 50px;
 	padding: 8px;
 	display: flex;
+	border-bottom: solid 1px #333;
+}
+
+.main_logo_name {
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	line-height: 200%;
+	text-decoration: none;
 }
 
 .main_searchbar {
@@ -43,6 +55,8 @@ body {
 	height: 30px;
 	border-radius: 10px;
 	margin-left: auto;
+	border-color: #ccc;
+	border-width: 1px;
 }
 
 .content_container_background {
@@ -54,6 +68,19 @@ body {
 
 .content_container {
 	background: white; 
+	width: 70%; 
+	padding: 10px;
+}
+
+.references_container_background {
+	background: #333;
+	width: 100%; 
+	height: 200px;
+	display: flex; 
+	justify-content: center;
+}
+
+.references_container { 
 	width: 70%; 
 	padding: 10px;
 }
